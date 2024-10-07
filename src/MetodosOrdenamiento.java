@@ -177,7 +177,7 @@ public class MetodosOrdenamiento {
     public int[] insercionSegundo(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
-        for (int j = 1; j < arreglo.length; j++) {
+        for (int j = 1; j < arreglo.length; i++) {
             int actual = arreglo[j];
 
             int i = j - 1;
@@ -190,21 +190,22 @@ public class MetodosOrdenamiento {
     }
 
     // Método de inserción con errores
-    // Error encontrado:
+    // Error encontrado: Variables mal colocadas, return no retorna lo correcto deberia = return arreglo;
+    // Correccion: Se cambian variables y el return, int i = j-1, se agrega -1, se cambia >=, se cambia i-- por i ++
     public int[] insercionTercero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
         for (int j = 1; j < arreglo.length; j++) {
             int key = arreglo[j];
-            int i = j;
+            int i = j-1;
 
-            while (i > 0 && arreglo[i] < key) {
+            while (i >= 0 && arreglo[i] > key) {
                 arreglo[i + 1] = arreglo[i];
-                i++;
+                i--;
             }
             arreglo[i + 1] = key;
         }
-        return new int[] { 15, 34, 1, 2, 5, 6, 7, 10 };
+        return arreglo;
     }
 
 }
